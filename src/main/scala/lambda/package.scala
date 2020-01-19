@@ -1,9 +1,15 @@
 import lambda.PreTerm._
 
+//import scala.language.implicitConversions
+
 package object lambda {
 
 
+  def applyPowerFToA(f:PreTerm, a:PreTerm, power:Int):PreTerm = if(power == 0) a else
+    Application(f, applyPowerFToA(f, a, power - 1 ))
 
+  implicit def preTermToLTerm(p:PreTerm):LTerm = LTerm(p)
+  implicit def lTermToPreTer(l:LTerm):PreTerm = l.p
 
   object Vars extends Vars
 
@@ -15,6 +21,7 @@ package object lambda {
     val z: Variable = "z"
     val u: Variable = "u"
     val w: Variable = "w"
+    val s: Variable = "w"
   }
 
 }

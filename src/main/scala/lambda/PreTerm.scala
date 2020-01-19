@@ -11,6 +11,8 @@ object PreTerm {
 
   sealed trait PreTerm {
 
+    def <<>>(ot:PreTerm):Boolean = AlphaEquivalence(Normalization(this), Normalization(ot))
+
     def <=>(ot:PreTerm):Boolean = AlphaEquivalence(this, ot)
 
     def !<=>(ot:PreTerm):Boolean = !AlphaEquivalence(this, ot)

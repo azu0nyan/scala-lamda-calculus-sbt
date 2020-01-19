@@ -4,6 +4,9 @@
     <option name="postfixOps" value="true" />
     <option name="implicitConversions" value="true" />
     <option name="experimental" value="true" />
-    <profile name="sbt 1" modules="scala-lamda-calculus-sbt" />
+    <profile name="sbt 1" modules="scala-lamda-calculus-sbt">
+      <option name="implicitConversions" value="true" />
+      <option name="featureWarnings" value="true" />
+    </profile>
   </component>
 </project>
