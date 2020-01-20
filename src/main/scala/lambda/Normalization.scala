@@ -5,6 +5,7 @@ import lambda.PreTerm._
 //import lambda.PreTerm._
 
 object Normalization {
+
   def apply(p: PreTerm): PreTerm = {
     val res = p match {
       case v@Variable(_) => v

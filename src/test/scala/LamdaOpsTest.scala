@@ -43,5 +43,22 @@ class LamdaOpsTest extends AnyFunSuite with Vars {
     }
   }
 
+  test("projections"){
+    import Logic._
+    println(pair(x, y) ^ proj1)
+
+    assert((pair(x, y) ^ proj1) <<>> x )
+    assert((pair(x, y) ^ proj2) <<>> y )
+  }
+
+  test("projections n "){
+    import Logic._
+    for( total <- 1 to 6;
+         elem <- 1 to total){
+      val vars = Alphabet.variables.take(total)
+      val tuple = Logic.tupleN(vars)
+      assert((tuple ^ Logic.projN(elem, total)) <<>> vars(elem - 1))
+    }
+  }
 
 }

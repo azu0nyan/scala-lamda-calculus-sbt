@@ -10,6 +10,11 @@ object PreTerm {
   type V = String
 
   sealed trait PreTerm {
+    def variables:Set[Variable] = this match {
+      case va@Variable(v) => Set(va)
+      case Abstraction(x, m) => Set(x) & m.variables
+      case Application(m, n) =>m.variables & n.variables
+    }
 
     def <<>>(ot:PreTerm):Boolean = AlphaEquivalence(Normalization(this), Normalization(ot))
 
