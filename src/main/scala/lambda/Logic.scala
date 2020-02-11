@@ -1,6 +1,6 @@
 package lambda
 
-import lambda.PreTerm.{Abstraction, PreTerm, Variable}
+import lambda.PreTerm.{Abstraction, Application, PreTerm, Variable}
 
 object Logic {
   private val x: Variable = "x"
@@ -28,7 +28,8 @@ object Logic {
 
   def tupleN(p: Seq[PreTerm]): PreTerm = {
     val x_ = Alphabet.getLeastNotContainedIn(p.toSet).head
-    x_ ~> p.foldLeft[PreTerm](x_)(_ ^ _)
+//    x_ ~> p.foldLeft[PreTerm](x_)(_ ^ _)
+    x_ ~> p.foldLeft[PreTerm](x_)((a, b)=> Application(a, b))
   }
 
   def projN(number:Int,total:Int):PreTerm = {

@@ -24,4 +24,9 @@ package object lambda {
     val s: Variable = "w"
   }
 
+  def replaceVars(p:PreTerm, map:Map[Variable, Variable]) :PreTerm = p match {
+    case v@Variable(_) => map.getOrElse(v, v)
+    case Abstraction(x, m) => Abstraction(map.getOrElse(x, x), replaceVars(m, map))
+    case Application(m, n) =>Application(replaceVars(m, map), replaceVars(n, map))
+  }
 }

@@ -10,5 +10,7 @@ scalacOptions ++= Seq(
 )
 
 
+libraryDependencies += "com.lihaoyi" %% "scalatags" % "0.8.2"
+
 libraryDependencies += "org.scalactic" %% "scalactic" % "3.1.0"
 libraryDependencies += "org.scalatest" %% "scalatest" % "3.1.0" % "test"

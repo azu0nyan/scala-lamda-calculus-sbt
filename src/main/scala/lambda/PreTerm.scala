@@ -37,6 +37,8 @@ object PreTerm {
       case Abstraction(x, m) => s"($x -> $m)"
       case Application(m, n) => s"($m $n)"
     }
+
+
   }
 
   case class Variable(v: V) extends PreTerm {

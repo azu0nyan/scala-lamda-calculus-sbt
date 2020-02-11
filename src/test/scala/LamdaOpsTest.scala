@@ -59,6 +59,7 @@ class LamdaOpsTest extends AnyFunSuite with Vars {
       val tuple = Logic.tupleN(vars)
       assert((tuple ^ Logic.projN(elem, total)) <<>> vars(elem - 1))
     }
+
   }
 
 }
